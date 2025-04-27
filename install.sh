@@ -70,7 +70,7 @@ fi
 echo "-----"
 
 echo "Cloning & Entering NixOs-Yggdrasil Repository"
-git clone https://gitlab.com/zaney/NixOs-Yggdrasil.git
+git clone https://github.com/WorldTreeYggdrasil/NixOs-Yggdrasil.git
 cd NixOs-Yggdrasil || exit
 mkdir hosts/"$hostName"
 cp hosts/default/*.nix hosts/"$hostName"
@@ -84,9 +84,9 @@ sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./flak
 sed -i "/^\s*profile[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$profile\"/" ./flake.nix
 
 
-read -rp "Enter your keyboard layout: [ us ] " keyboardLayout
+read -rp "Enter your keyboard layout: [ pl ] " keyboardLayout
 if [ -z "$keyboardLayout" ]; then
-  keyboardLayout="us"
+  keyboardLayout="pl"
 fi
 
 sed -i "/^\s*keyboardLayout[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$keyboardLayout\"/" ./hosts/$hostName/variables.nix
@@ -95,7 +95,7 @@ echo "-----"
 
 read -rp "Enter your console keymap: [ us ] " consoleKeyMap
 if [ -z "$consoleKeyMap" ]; then
-  consoleKeyMap="us"
+  consoleKeyMap="pl"
 fi
 
 sed -i "/^\s*consoleKeyMap[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$consoleKeyMap\"/" ./hosts/$hostName/variables.nix
