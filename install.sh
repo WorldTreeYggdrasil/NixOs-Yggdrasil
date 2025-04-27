@@ -38,10 +38,6 @@ echo "-----"
 read -rp "Enter Your Hardware Profile (GPU)
 Options:
 [ amd ]
-nvidia
-nvidia-laptop
-intel
-vm
 Please type out your choice: " profile
 if [ -z "$profile" ]; then
   profile="amd"
@@ -93,7 +89,7 @@ sed -i "/^\s*keyboardLayout[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$keyboardL
 
 echo "-----"
 
-read -rp "Enter your console keymap: [ us ] " consoleKeyMap
+read -rp "Enter your console keymap: [ pl ] " consoleKeyMap
 if [ -z "$consoleKeyMap" ]; then
   consoleKeyMap="pl"
 fi
