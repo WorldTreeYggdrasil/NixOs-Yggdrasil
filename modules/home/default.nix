@@ -8,10 +8,8 @@ in {
     ./bat.nix
     ./btop.nix
     ./cava.nix
-    ./emoji.nix
     ./fastfetch
     ./gh.nix
-    ./ghostty.nix
     ./git.nix
     ./gtk.nix
     ./htop.nix
@@ -27,7 +25,6 @@ in {
     ./swaync.nix
     ./virtmanager.nix
     waybarChoice
-    ./wezterm.nix
     ./wlogout
     ./xdg.nix
     ./yazi

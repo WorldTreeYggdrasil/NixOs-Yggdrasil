@@ -1,19 +1,19 @@
 {
-  # Git Configuration ( For Pulling Software Repos )
-  gitUsername = "Tyler Kelley";
-  gitEmail = "tylerzanekelley@gmail.com";
+  # Github
+  gitUsername = "WorldTreeYggdrasil";
+  gitEmail = "teegenv@gmail.com";
 
   # Hyprland Settings
   extraMonitorSettings = "";
 
   # Waybar Settings
-  clock24h = false;
+  clock24h = true;
 
   # Program Options
-  browser = "brave"; # Set Default Browser (google-chrome-stable for google-chrome)
+  browser = "zen"; # Set Default Browser (google-chrome-stable for google-chrome)
   terminal = "kitty"; # Set Default System Terminal
-  keyboardLayout = "us";
-  consoleKeyMap = "us";
+  keyboardLayout = "pl";
+  consoleKeyMap = "pl";
 
   # For Nvidia Prime support
   intelID = "PCI:1:0:0";
@@ -29,16 +29,16 @@
   stylixImage = ../../wallpapers/AnimeGirlNightSky.jpg;
 
   # Set Waybar
-  # Includes alternates such as waybar-simple.nix & waybar-ddubs.nix
-  waybarChoice = ../../modules/home/waybar/waybar-simple.nix;
+  # Includes alternates such as waybar-curved.nix & waybar-ddubs.nix
+  waybarChoice = ../../modules/home/waybar/waybar-ddubs.nix;
 
   # Set Animation style
   # Available options are:
   # animations-def.nix  (default)
   # animations-end4.nix (end-4 project)
   # animations-dynamic.nix (ml4w project)
-  animChoice = ../../modules/home/hyprland/animations-end4.nix;
+  animChoice = ../../modules/home/hyprland/animations-def.nix;
 
   # Enable Thunar GUI File Manager
-  thunarEnable = false;
+  thunarEnable = true;
 }

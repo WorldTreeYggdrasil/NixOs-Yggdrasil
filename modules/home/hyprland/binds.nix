@@ -9,15 +9,13 @@ in {
     bind = [
       "$modifier,Return,exec,${terminal}"
       "$modifier,K,exec,list-keybinds"
-      "$modifier SHIFT,Return,exec,rofi-launcher"
-      "$modifier SHIFT,W,exec,web-search"
+      "$modifier SHIFT,D,exec,rofi-launcher"
+      "$modifier SHIFT,Z,exec,web-search"
       "$modifier ALT,W,exec,wallsetter"
       "$modifier SHIFT,N,exec,swaync-client -rs"
-      "$modifier,W,exec,${browser}"
-      "$modifier,Y,exec,kitty -e yazi"
-      "$modifier,E,exec,emopicker9000"
-      "$modifier,S,exec,screenshootin"
-      "$modifier,D,exec,discord"
+      "$modifier,Z,exec,${browser}"
+      "$modifier,E,exec,kitty -e yazi"
+      ",Print,exec,screenshootin"
       "$modifier,O,exec,obs"
       "$modifier,C,exec,hyprpicker -a"
       "$modifier,G,exec,gimp"
@@ -77,6 +75,29 @@ in {
       "$modifier SHIFT,8,movetoworkspace,8"
       "$modifier SHIFT,9,movetoworkspace,9"
       "$modifier SHIFT,0,movetoworkspace,10"
+
+      "$modifier,KP_1,movetoworkspace,1" # Numpad 1
+      "$modifier,KP_2,movetoworkspace,2" # Numpad 2
+      "$modifier,KP_3,movetoworkspace,3" # Numpad 3
+      "$modifier,KP_4,movetoworkspace,4" # Numpad 4
+      "$modifier,KP_5,movetoworkspace,5" # Numpad 5
+      "$modifier,KP_6,movetoworkspace,6" # Numpad 6
+      "$modifier,KP_7,movetoworkspace,7" # Numpad 7
+      "$modifier,KP_8,movetoworkspace,8" # Numpad 8
+      "$modifier,KP_9,movetoworkspace,9" # Numpad 9
+      "$modifier,KP_0,movetoworkspace,10" # Numpad 0
+
+      "$modifier SHIFT,KP_1,movetoworkspace,1" # Numpad 1
+      "$modifier SHIFT,KP_2,movetoworkspace,2" # Numpad 2
+      "$modifier SHIFT,KP_3,movetoworkspace,3" # Numpad 3
+      "$modifier SHIFT,KP_4,movetoworkspace,4" # Numpad 4
+      "$modifier SHIFT,KP_5,movetoworkspace,5" # Numpad 5
+      "$modifier SHIFT,KP_6,movetoworkspace,6" # Numpad 6
+      "$modifier SHIFT,KP_7,movetoworkspace,7" # Numpad 7
+      "$modifier SHIFT,KP_8,movetoworkspace,8" # Numpad 8
+      "$modifier SHIFT,KP_9,movetoworkspace,9" # Numpad 9
+      "$modifier SHIFT,KP_0,movetoworkspace,10" # Numpad 0
+
       "$modifier CONTROL,right,workspace,e+1"
       "$modifier CONTROL,left,workspace,e-1"
       "$modifier,mouse_down,workspace, e+1"

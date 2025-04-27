@@ -57,7 +57,9 @@ play = [
 	{ run = 'mpv --force-window %*', orphan = true, for = "windows" },
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
-
+pdf = [
+    { run = "zen \"$1\"", desc = "Open in Zen", for = "linux" }
+]
 [open]
 rules = [
 	# Folder
@@ -75,7 +77,9 @@ rules = [
 	{ mime = "*/javascript", use = [ "edit", "reveal" ] },
 	# Empty file
 	{ mime = "inode/empty", use = [ "edit", "reveal" ] },
-	# Fallback
+	# Pdf
+  { mime = "application/pdf", use = ["pdf", "reveal"] },
+  # Fallback
 	{ name = "*", use = [ "open", "reveal" ] },
 ]
 

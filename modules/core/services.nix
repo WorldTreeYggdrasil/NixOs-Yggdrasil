@@ -8,7 +8,8 @@
     blueman.enable = true; # Bluetooth Support
     tumbler.enable = true; # Image/video preview
     gnome.gnome-keyring.enable = true;
-
+    mullvad-vpn.enable = true;
+    tailscale.enable = true; # Connection to home network
     smartd = {
       enable =
         if profile == "vm"
