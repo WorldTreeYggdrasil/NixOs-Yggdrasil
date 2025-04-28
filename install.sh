@@ -23,8 +23,9 @@ sleep 2
 
 echo "-----"
 
-echo "Ensure In Home Directory"
-cd || exit
+echo "Ensuring We Are Inside NixOs-Yggdrasil Directory"
+SCRIPT_DIR=$(dirname "$(realpath "$0")")
+cd "$SCRIPT_DIR" || exit
 
 echo "-----"
 
@@ -46,16 +47,16 @@ fi
 echo "-----"
 
 backupname=$(date "+%Y-%m-%d-%H-%M-%S")
-if [ -d "NixOs-Yggdrasil" ]; then
-  echo "NixOs-Yggdrasil exists, backing up to .config/NixOs-Yggdrasil-backups folder."
-  if [ -d ".config/NixOs-Yggdrasil-backups" ]; then
+if [ -d "$HOME/NixOs-Yggdrasil" ] && [ "$SCRIPT_DIR" != "$HOME/NixOs-Yggdrasil" ]; then
+  echo "NixOs-Yggdrasil exists in home, backing up to .config/NixOs-Yggdrasil-backups folder."
+  if [ -d "$HOME/.config/NixOs-Yggdrasil-backups" ]; then
     echo "Moving current version of NixOs-Yggdrasil to backups folder."
-    mv "$HOME"/NixOs-Yggdrasil .config/NixOs-Yggdrasil-backups/"$backupname"
+    mv "$HOME/NixOs-Yggdrasil" "$HOME/.config/NixOs-Yggdrasil-backups/$backupname"
     sleep 1
   else
     echo "Creating the backups folder & moving NixOs-Yggdrasil to it."
-    mkdir -p .config/NixOs-Yggdrasil-backups
-    mv "$HOME"/NixOs-Yggdrasil .config/NixOs-Yggdrasil-backups/"$backupname"
+    mkdir -p "$HOME/.config/NixOs-Yggdrasil-backups"
+    mv "$HOME/NixOs-Yggdrasil" "$HOME/.config/NixOs-Yggdrasil-backups/$backupname"
     sleep 1
   fi
 else
@@ -65,20 +66,23 @@ fi
 
 echo "-----"
 
-echo "Cloning & Entering NixOs-Yggdrasil Repository"
-git clone https://github.com/WorldTreeYggdrasil/NixOs-Yggdrasil.git
-cd NixOs-Yggdrasil || exit
-mkdir hosts/"$hostName"
+# Remove git clone
+# echo "Cloning & Entering NixOs-Yggdrasil Repository"
+# git clone https://github.com/WorldTreeYggdrasil/NixOs-Yggdrasil.git
+# cd NixOs-Yggdrasil || exit
+
+mkdir -p hosts/"$hostName"
 cp hosts/default/*.nix hosts/"$hostName"
 installusername=$(echo $USER)
+
 git config --global user.name "$installusername"
 git config --global user.email "$installusername@gmail.com"
 git add .
 git config --global --unset-all user.name
 git config --global --unset-all user.email
+
 sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./flake.nix
 sed -i "/^\s*profile[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$profile\"/" ./flake.nix
-
 
 read -rp "Enter your keyboard layout: [ pl ] " keyboardLayout
 if [ -z "$keyboardLayout" ]; then
@@ -112,4 +116,4 @@ NIX_CONFIG="experimental-features = nix-command flakes"
 
 echo "-----"
 
-sudo nixos-rebuild switch --flake ~/NixOs-Yggdrasil/#${profile}
+sudo nixos-rebuild switch --flake ".#${profile}"
