@@ -6,6 +6,8 @@
 }: {
   networking = {
     hostName = "${host}";
+    #wireless.iwd.enable = true;
+    #networkmanager.wifi.backend = "iwd";
     networkmanager.enable = true;
     timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
     firewall = {
@@ -25,5 +27,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [networkmanagerapplet];
+  environment.systemPackages = with pkgs; [
+    networkmanagerapplet
+  ];
 }
