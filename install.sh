@@ -39,6 +39,10 @@ echo "-----"
 read -rp "Enter Your Hardware Profile (GPU)
 Options:
 [ amd ]
+nvidia
+nvidia-laptop
+intel
+vm
 Please type out your choice: " profile
 if [ -z "$profile" ]; then
   profile="amd"
@@ -65,11 +69,6 @@ else
 fi
 
 echo "-----"
-
-# Remove git clone
-# echo "Cloning & Entering NixOs-Yggdrasil Repository"
-# git clone https://github.com/WorldTreeYggdrasil/NixOs-Yggdrasil.git
-# cd NixOs-Yggdrasil || exit
 
 mkdir -p hosts/"$hostName"
 cp hosts/default/*.nix hosts/"$hostName"

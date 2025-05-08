@@ -12,7 +12,7 @@ in {
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = false;
-    backupFileExtension = "hm-backup";
+    backupFileExtension = "back";
     extraSpecialArgs = {inherit inputs username host profile;};
     users.${username} = {
       imports = [./../home];
